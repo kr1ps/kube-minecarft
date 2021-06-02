@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-service
+  labels:
+    name: minecraft-service
+    app: minecraft
+spec:
+  ports:
+  - port: 25565
+    targetPort: 25565
+    name: minecraft-http
+  type: LoadBalancer 
+  selector:
+    name: minecraft-pod
+    app: minecraft
